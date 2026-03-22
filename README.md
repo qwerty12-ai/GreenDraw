@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎯 GreenDraw — Full-Stack Draw & Rewards Dashboard System
 
-## Getting Started
+[![Live demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://green-draw.vercel.app/)
 
-First, run the development server:
+**GreenDraw** is a full-stack **Next.js** application built under a real-world PRD constraint — featuring authentication, protected dashboards, draw systems, and winnings tracking.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This project was developed under a **48-hour selection assignment**, focusing on building a **functional system**, not just a UI.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> “A dashboard-driven system where auth, APIs, and data actually work together — not just look good.”
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✨ Overview
 
-## Learn More
+GreenDraw simulates a subscription-based platform combining:
 
-To learn more about Next.js, take a look at the following resources:
+- ⛳ Score tracking  
+- 🎲 Draw-based reward system  
+- 💚 Charity interaction  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+It lets users:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- 📊 View dashboard stats and activity  
+- 🎲 Access latest draw results  
+- 💰 Track winnings dynamically  
+- 💚 Interact with charity flows  
+- 🔐 Navigate protected routes securely  
 
-## Deploy on Vercel
+⚠️ **Disclaimer**  
+This project is built strictly for demonstration purposes.  
+All winnings, rewards, and values are **simulated** — no real money, transactions, or payouts are involved.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+> Built to demonstrate system design, not financial functionality.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🌐 Live Production Deployment
+
+🚀 **Live App:**  
+https://green-draw.vercel.app  
+
+> Deployed on **Vercel** with a production **MongoDB Atlas** cluster.  
+> Authentication, API routes, and database flows are fully functional in production.
+
+---
+
+## 🔥 Features
+
+| Feature | Description |
+|--------|------------|
+| *JWT Authentication* | Secure login system with token validation |
+| *Protected Dashboard* | Route-level access control across dashboard pages |
+| *Draw System* | Displays latest draw results dynamically |
+| *Winnings Tracking* | Fetches and calculates winnings from database |
+| *Charity Flow* | User interaction with charity selection |
+| *Persistent Sessions* | Local storage-based session handling |
+| *Responsive UI* | Optimized layout across devices |
+| *API Integration* | Secure API calls with authorization headers |
+| *Production Architecture* | Modular Next.js App Router setup |
+
+---
+
+## 🧠 Tech Stack
+
+| Layer | Tech |
+|------|------|
+| *Framework* | Next.js 15 (App Router) |
+| *Styling* | Tailwind CSS |
+| *Backend* | Next.js API Routes |
+| *Database* | MongoDB Atlas + Mongoose |
+| *Auth* | JWT (Custom Authentication) |
+| *Deployment* | Vercel |
+
+---
+
+## 🧪 Development Notes
+
+This wasn’t just a “build everything perfectly” project.
+
+It involved:
+
+- Handling **auth edge cases across routes**
+- Debugging **prod vs local inconsistencies**
+- Fixing **state persistence issues**
+- Adjusting **UI responsiveness under time pressure**
+- Making **trade-offs from a real PRD**
+
+Some features from the PRD were intentionally skipped due to time constraints — prioritizing a **working system over incomplete complexity**.
+
+---
+
+## 🧑‍💻 Author
+
+**Mohd Abdul Sabeeh**  
+Full-Stack Developer • Hyderabad  
+📧 sabeeh.abdul@outlook.com  
+🌐 [LinkedIn](https://www.linkedin.com/in/mohd-abdul-sabeeh-38429a2ba) • [GitHub](https://github.com/qwerty12-ai/)
+
+---
+
+## 🪪 License
+
+This project is licensed under the **MIT License** — you’re free to use, modify, and distribute this project with proper credit.
+
+See the [LICENSE](./LICENSE) file for details.
+
+---
+
+🏷 **Tags**  
+#NextJS #FullStack #MERN #JWT #MongoDB #WebDevelopment #BuildInPublic
