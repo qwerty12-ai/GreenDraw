@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   FaHome,
   FaChartLine,
@@ -12,6 +12,12 @@ import {
 
 export default function Sidebar({ closeSidebar }) {
   const path = usePathname();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    router.replace("/login");
+  }
 
   const links = [
     { name: "Dashboard", href: "/dashboard", icon: <FaHome /> },
@@ -46,6 +52,8 @@ export default function Sidebar({ closeSidebar }) {
           );
         })}
       </nav>
+
+      <button onClick={handleLogout} className="mt-auto bg-red-600 hover:bg-red-700 px-3 py-2 rounded-lg text-white">Logout</button>
     </div>
   );
 }

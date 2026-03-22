@@ -23,7 +23,7 @@ export default function AdminPage() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
-      router.push("/auth/login");
+      router.push("/login");
       return;
     }
 
@@ -38,7 +38,7 @@ export default function AdminPage() {
     } catch (error) {
       console.log("Invalid token");
       setAuthorized(false);
-      router.push("/auth/login")
+      router.push("/login")
     }
   }, []);
 
