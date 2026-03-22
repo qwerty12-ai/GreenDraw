@@ -18,9 +18,7 @@ export default function WinningsPage() {
           },
         });
 
-        const data = await res.json();
-
-        console.log("winnings data: ", data)        
+        const data = await res.json();        
 
         setWinnings(Array.isArray(data.winnings)? data.winnings: data.winnings?.history || []);
       } catch (error) {

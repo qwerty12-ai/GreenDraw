@@ -40,8 +40,6 @@ export async function POST(req) {
         drawNumbers.includes(num)
       ).length;
 
-      console.log("Match count: ", matchCount)
-
       let prize = 0;
 
       
@@ -101,7 +99,6 @@ export async function POST(req) {
       draw,
     });
   } catch (error) {
-    console.error("DRAW ERROR:", error);
     return NextResponse.json(
       { error: "Draw failed" },
       { status: 500 }

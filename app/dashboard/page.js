@@ -10,18 +10,50 @@ export default function DashBoardPage() {
   const router = useRouter();
   const [isAdmin, setIsAdmin] = useState(false);
   const [latestDraw, setLatestDraw] = useState([]);
+  const [winnings, setWinnings] = useState(0);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token){router.push("/login"); return;}
+
+    try {
+      const decoded = JSON.parse(atob(token.split(".")[1]));
+      if(!decoded?.id) {
+        localStorage.removeItem("token");
+        router.push("/login");
+        return;
+      }
+    
+      if (decoded.role === "admin") {
+        setIsAdmin(true);
+      }
+
+      setLoading(false);
+
+    } catch {
+      localStorage.removeItem("token");
+      router.push("/login")
+    }
+  }, [router]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) return;
 
-    try {
-      const decoded = JSON.parse(atob(token.split(".")[1]));
-      if (decoded.role === "admin") {
-        setIsAdmin(true);
+    fetch("api/winnings", {
+      headers: {
+        Authorization: `Bearer ${token}`
       }
-    } catch {}
-  }, []);
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      const total = data.winnings?.reduce((sum, w) => sum + (w.amount || 0), 0)
+      setWinnings(total || 0)
+    })
+    .catch(() => {})
+  }, [])
+  
 
   useEffect(() => {
     fetch("/api/draw/latest")
@@ -33,6 +65,8 @@ export default function DashBoardPage() {
       })
       .catch(() => {});
   }, []);
+
+  if(loading) return null;
 
   return (
     <div className="space-y-6">
@@ -57,7 +91,7 @@ export default function DashBoardPage() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <StatsCard title="Subscription" value="Active" icon={<FaCrown />} />
-        <StatsCard title="Winnings" value="₹0" icon={<FaCoins />} />
+        <StatsCard title="Winnings" value={`${"₹"+winnings}`} icon={<FaCoins />} />
       </div>
 
       <DrawCard numbers={latestDraw} />

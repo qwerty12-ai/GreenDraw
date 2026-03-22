@@ -1,11 +1,41 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { FaBars } from "react-icons/fa";
 import Sidebar from "@/components/dashboard/Sidebar";
 
 export default function DashboardLayout({ children }) {
   const [open, setOpen] = useState(false);
+  const [authorized, setAuthorized] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if(!token) {
+      router.replace("/login");
+      return;
+    }
+
+    try {
+      const decoded = JSON.parse(atob(token.split(".")[1]));
+
+      if(!decoded?.id) {
+        localStorage.removeItem("token");
+        router.replace("/login");
+        return;
+      }
+    } catch(e) {
+       localStorage.removeItem("token");
+       router.replace("/login");
+       return;
+    }
+
+    setAuthorized(true);
+  }, [router])
+
+  if(!authorized) return null;
 
   return (
     <div className="min-h-screen bg-zinc-950 text-white">

@@ -17,7 +17,6 @@ export default function ScoresPage() {
         method: "GET"
       })
       const data = await res.json();
-      console.log("Scores API: ", data);
       setScores(data.scores || [])
     } catch(error) {
       console.log(error)
