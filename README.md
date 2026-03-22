@@ -16,7 +16,9 @@ GreenDraw simulates a subscription-based platform combining:
 
 - ⛳ Score tracking  
 - 🎲 Draw-based reward system  
-- 💚 Charity interaction  
+- 💚 Charity interaction
+
+> ℹ️ The draw system is influenced by user-submitted golf scores rather than pure random chance. 
 
 It lets users:
 
